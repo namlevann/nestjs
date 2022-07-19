@@ -6,7 +6,7 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalPipes(new common_1.ValidationPipe());
-    await app.listen(8080);
+    await app.listen(process.env.PORT || 8080);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

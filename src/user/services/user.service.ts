@@ -13,9 +13,9 @@ export class UserService {
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
     const { email, userName, password } = createUserDto;
-    const user = this.userModel.findOne({ userName });
-    if (user) {
-      throw new NotFoundException(`Email ${email} is exist`);
+    const isExist = await this.userModel.findOne({ userName });
+    if (isExist?.userName) {
+      throw new NotFoundException(`User ${userName} is exist`);
     }
     const hashPassword = await bcrypt.hash(password, HASH_LENGTH);
     const createdUser = new this.userModel({

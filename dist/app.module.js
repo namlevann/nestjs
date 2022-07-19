@@ -13,6 +13,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const user_module_1 = require("./user/user.module");
 const auth_controller_1 = require("./auth/auth.controller");
 const auth_module_1 = require("./auth/auth.module");
+const cloudinary_module_1 = require("./cloudinary/cloudinary.module");
 const mongoConfig_1 = require("./mongoConfig");
 let AppModule = class AppModule {
 };
@@ -26,6 +27,7 @@ AppModule = __decorate([
             }),
             user_module_1.UserModule,
             auth_module_1.AuthModule,
+            cloudinary_module_1.CloudinaryModule,
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [],

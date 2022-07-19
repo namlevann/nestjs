@@ -29,6 +29,7 @@ export declare class User {
     email: string;
     password: string;
     role: ROLE;
+    avatar: string;
     address: string;
     phoneNumber: string;
 }

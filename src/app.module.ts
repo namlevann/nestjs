@@ -4,7 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import mongoConfig from './mongoConfig';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
@@ -15,6 +17,7 @@ import mongoConfig from './mongoConfig';
     }),
     UserModule,
     AuthModule,
+    CloudinaryModule,
   ],
   controllers: [AuthController],
   providers: [],

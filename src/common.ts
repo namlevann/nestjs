@@ -3,3 +3,4 @@ export const patternEmail =
 
 export const JWT_SECRET_KEY = 'secret';
 export const HASH_LENGTH = 10;
+export const CLOUDINARY = 'Cloudinary';

@@ -12,13 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginDTO = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
+const common_1 = require("../../common");
 class LoginDTO {
 }
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.Matches)(common_1.patternEmail),
     __metadata("design:type", String)
-], LoginDTO.prototype, "userName", void 0);
+], LoginDTO.prototype, "email", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),

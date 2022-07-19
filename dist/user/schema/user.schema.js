@@ -37,11 +37,15 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ default: "" }),
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], User.prototype, "avatar", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ default: '' }),
     __metadata("design:type", String)
 ], User.prototype, "address", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ default: "" }),
+    (0, mongoose_1.Prop)({ default: '' }),
     __metadata("design:type", String)
 ], User.prototype, "phoneNumber", void 0);
 User = __decorate([

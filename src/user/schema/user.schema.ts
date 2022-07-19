@@ -20,9 +20,11 @@ export class User {
   password: string;
   @Prop()
   role: ROLE;
-   @Prop({default:""})
+  @Prop()
+  avatar: string;
+  @Prop({ default: '' })
   address: string;
-   @Prop({default:""})
+  @Prop({ default: '' })
   phoneNumber: string;
 }
 

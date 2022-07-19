@@ -1,11 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateUserDto } from '../dto/user.dto';
+import { BadRequestException, Controller, Get, Param, Patch, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 import { User } from '../schema/user.schema';
 import { UserService } from '../services/user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService, private cloudinary: CloudinaryService) {}
 
   @Get()
   async findAllUser(): Promise<User[]> {
@@ -15,5 +16,14 @@ export class UserController {
   @Get('/:userName')
   async findUserByUsername(@Param('userName') userName: string): Promise<User> {
     return this.userService.findUser(userName);
+  }
+
+  @Patch('avatar/:id')
+  @UseInterceptors(FileInterceptor('image'))
+  async uploadFile(@UploadedFile() file: Express.Multer.File, @Param() { id }) {
+    const { url } = await this.cloudinary.uploadImage(file).catch(() => {
+      throw new BadRequestException('Invalid file type.');
+    });
+    return this.userService.updateAvatar(url, id);
   }
 }

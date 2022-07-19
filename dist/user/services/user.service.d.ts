@@ -6,5 +6,6 @@ export declare class UserService {
     constructor(userModel: Model<UserDocument>);
     createUser(createUserDto: CreateUserDto): Promise<User>;
     findAll(): Promise<User[]>;
+    updateAvatar(url: string, id: string): Promise<User>;
     findUser(userName: string): Promise<User>;
 }

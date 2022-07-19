@@ -26,6 +26,10 @@ let UserService = class UserService {
     }
     async createUser(createUserDto) {
         const { email, userName, password } = createUserDto;
+        const user = this.userModel.findOne({ userName });
+        if (user) {
+            throw new common_1.NotFoundException(`Email ${email} is exist`);
+        }
         const hashPassword = await bcrypt.hash(password, common_2.HASH_LENGTH);
         const createdUser = new this.userModel({
             email,
@@ -38,9 +42,22 @@ let UserService = class UserService {
     async findAll() {
         return this.userModel.find().exec();
     }
+    async updateAvatar(url, id) {
+        const user = this.userModel
+            .findByIdAndUpdate(id, {
+            avatar: url,
+        })
+            .setOptions({ overwrite: true, new: true });
+        if (!user) {
+            throw new common_1.NotFoundException();
+        }
+        return user;
+    }
     async findUser(userName) {
-        const currentUser = this.userModel
-            .findOne({ userName });
+        const currentUser = this.userModel.findOne({ userName });
+        if (!currentUser) {
+            throw new common_1.NotFoundException(`User ${userName} not found`);
+        }
         return currentUser;
     }
 };

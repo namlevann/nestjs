@@ -16,3 +16,8 @@ export class CreateUserDto {
   @IsNotEmpty()
   password: string;
 }
+
+export class UpdateUserDto {
+  address: string;
+  phoneNumber: string;
+}

@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { patternEmail } from 'src/constants/common';
-import { ROLE } from '../constants/enum';
 
 export type UserDocument = User & Document;
 
@@ -19,8 +18,8 @@ export class User {
   @Prop({ required: true, IsNotEmpty: true, minlength: 6 })
   password: string;
   @Prop()
-  role: ROLE;
-  @Prop()
+  role: string;
+  @Prop({ default: '' })
   avatar: string;
   @Prop({ default: '' })
   address: string;

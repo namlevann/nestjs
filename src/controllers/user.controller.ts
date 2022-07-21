@@ -1,7 +1,7 @@
 import { BadRequestException, Controller, Get, Param, Patch, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
-import { User } from '../schema/user.schema';
+import { CloudinaryService } from 'src/services/cloudinary.service';
+import { User } from '../models/user.schema';
 import { UserService } from '../services/user.service';
 
 @Controller('user')

@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { JWT_SECRET_KEY } from 'src/common';
-import { UserModule } from 'src/user/user.module';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
+import { JWT_SECRET_KEY } from 'src/constants/common';
+import { UserModule } from 'src/modules/user.module';
+import { AuthController } from '../controllers/auth.controller';
+import { AuthService } from '../services/auth.service';
 
 @Module({
   imports: [

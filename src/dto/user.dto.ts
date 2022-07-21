@@ -1,4 +1,4 @@
-import { patternEmail } from 'src/common';
+import { patternEmail } from 'src/constants/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, Matches } from 'class-validator';
 

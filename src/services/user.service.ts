@@ -2,10 +2,10 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateUserDto } from '../dto/user.dto';
-import { ROLE } from '../enum';
-import { User, UserDocument } from '../schema/user.schema';
+import { ROLE } from '../constants/enum';
+import { User, UserDocument } from '../models/user.schema';
 import * as bcrypt from 'bcrypt';
-import { HASH_LENGTH } from 'src/common';
+import { HASH_LENGTH } from 'src/constants/common';
 
 @Injectable()
 export class UserService {

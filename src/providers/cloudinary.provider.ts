@@ -1,5 +1,5 @@
 import { ConfigOptions, v2 } from 'cloudinary';
-import { CLOUDINARY } from 'src/common';
+import { CLOUDINARY } from 'src/constants/common';
 
 export const CloudinaryProvider = {
   provide: CLOUDINARY,

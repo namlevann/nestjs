@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserModule } from './user/user.module';
-import { AuthController } from './auth/auth.controller';
-import { AuthModule } from './auth/auth.module';
-import { CloudinaryModule } from './cloudinary/cloudinary.module';
-import mongoConfig from './mongoConfig';
-import { AuthService } from './auth/auth.service';
+import { UserModule } from './modules/user.module';
+import { AuthController } from './controllers/auth.controller';
+import { AuthModule } from './modules/auth.module';
+import { CloudinaryModule } from './modules/cloudinary.module';
+import mongoConfig from './config/mongoConfig';
 
 @Module({
   imports: [

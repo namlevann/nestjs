@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { patternEmail } from 'src/common';
-import { ROLE } from '../enum';
+import { patternEmail } from 'src/constants/common';
+import { ROLE } from '../constants/enum';
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class User {
   @Prop({ required: true })
   userName: string;
